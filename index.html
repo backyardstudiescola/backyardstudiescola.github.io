@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backyard Studios — Mobile Apps by Courtney Hall</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f0f1a;
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 80px 20px 60px;
+      background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+    }
+
+    .studio-badge {
+      display: inline-block;
+      background: #1a1a2e;
+      border: 1px solid #f0c040;
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 12px;
+      color: #f0c040;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .hero h1 span {
+      color: #f0c040;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #888;
+      max-width: 500px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    /* APP CARD */
+    .apps {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 24px;
+    }
+
+    .app-card {
+      background: #1a1a2e;
+      border: 1px solid #2a2a3e;
+      border-radius: 20px;
+      padding: 32px;
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+    }
+
+    .app-card:hover {
+      border-color: #f0c040;
+    }
+
+    .app-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #f5c842, #f0a020);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      flex-shrink: 0;
+    }
+
+    .app-info { flex: 1; }
+
+    .app-name {
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .app-tagline {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .app-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: #0f0f1a;
+      border: 1px solid #2a2a3e;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 11px;
+      color: #666;
+      font-weight: 600;
+    }
+
+    .app-cta {
+      display: inline-block;
+      background: #f0c040;
+      color: #0f0f1a;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: opacity 0.2s;
+    }
+
+    .app-cta:hover { opacity: 0.85; }
+
+    .app-cta.coming-soon {
+      background: #2a2a3e;
+      color: #555;
+      cursor: default;
+    }
+
+    /* COMING SOON CARD */
+    .coming-soon-card {
+      background: #1a1a2e;
+      border: 1px dashed #2a2a3e;
+      border-radius: 20px;
+      padding: 32px;
+      text-align: center;
+      color: #555;
+    }
+
+    .coming-soon-card p {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    /* ABOUT */
+    .about {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+      border-top: 1px solid #1a1a2e;
+      padding-top: 60px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .about-card {
+      background: #1a1a2e;
+      border: 1px solid #2a2a3e;
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .about-card .emoji { font-size: 24px; margin-bottom: 8px; }
+    .about-card h3 { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .about-card p { font-size: 12px; color: #666; line-height: 1.5; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid #1a1a2e;
+      color: #444;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: #666;
+      text-decoration: none;
+      margin: 0 12px;
+    }
+
+    footer a:hover { color: #f0c040; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 32px; }
+      .app-card { flex-direction: column; text-align: center; }
+      .app-tags { justify-content: center; }
+      .app-cta { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="studio-badge">🏡 Backyard Studios</div>
+    <h1>Apps that make<br><span>real life better</span></h1>
+    <p>Independent mobile apps built with care by Courtney Hall.</p>
+  </div>
+
+  <div class="apps">
+    <div class="section-label">Our Apps</div>
+
+    <div class="app-card">
+      <div class="app-icon">🏆</div>
+      <div class="app-info">
+        <div class="app-name">TrophyLife</div>
+        <div class="app-tagline">Build real habits. Earn real rewards. Complete daily habits, earn Trophy tokens, and watch your virtual income grow 24/7.</div>
+        <div class="app-tags">
+          <span class="tag">Habit Tracker</span>
+          <span class="tag">Earn Rewards</span>
+          <span class="tag">iOS</span>
+          <span class="tag">Free</span>
+        </div>
+      </div>
+      <a href="#" class="app-cta">Coming Soon</a>
+    </div>
+
+    <div class="coming-soon-card">
+      <div style="font-size: 32px;">✨</div>
+      <p>More apps from Backyard Studios coming soon.</p>
+    </div>
+  </div>
+
+  <div class="about">
+    <div class="section-label">About Backyard Studios</div>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="emoji">🏡</div>
+        <h3>Independent</h3>
+        <p>Solo indie studio building apps that solve real problems.</p>
+      </div>
+      <div class="about-card">
+        <div class="emoji">📱</div>
+        <h3>Mobile First</h3>
+        <p>Built for iOS with love, care, and attention to detail.</p>
+      </div>
+      <div class="about-card">
+        <div class="emoji">💛</div>
+        <h3>User Focused</h3>
+        <p>Apps designed to genuinely improve your daily life.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="mailto:dhallchall515@gmail.com">Contact</a>
+    </p>
+    <p style="margin-top: 16px;">© 2026 Backyard Studios · Made with 🏆 by Courtney Hall</p>
+  </footer>
+
+</body>
+</html>
